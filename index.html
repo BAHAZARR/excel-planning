@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning des Sessions Excel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .info-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #2a5298;
+            color: white;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .session {
+            margin: 20px 0;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+        }
+        .session:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+        .session h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #1e3c72;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .toggle-icon {
+            font-size: 24px;
+            color: #2a5298;
+            transition: transform 0.3s ease-in-out;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .open .toggle-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">📅 Planning des Sessions Excel</div>
+    <div class="info-bar">
+        <span>📘 Niveau : Intermédiaire</span>
+        <span>📅 Total : 5 sessions</span>
+        <span>⏳ Durée : 7 heures</span>
+    </div>
+    <div class="container">
+        <div class="session" onclick="toggleDetails(this)">
+            <h2>📌 Session 1 (28 février 2025 - 1h30) <span class="toggle-icon">▼</span></h2>
+            <div class="details">
+                <p><strong>Objectif :</strong> Révision des bases et approfondissement des formules.</p>
+                <p><strong>Contenu :</strong></p>
+                <ul>
+                    <li>Révision des formules de base.</li>
+                    <li>Fonctions intermédiaires : SI, RECHERCHEV.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="session" onclick="toggleDetails(this)">
+            <h2>📌 Session 2 (1 mars 2025 - 1h30) <span class="toggle-icon">▼</span></h2>
+            <div class="details">
+                <p><strong>Objectif :</strong> Mise en forme avancée et gestion des données.</p>
+                <p><strong>Contenu :</strong></p>
+                <ul>
+                    <li>Mise en forme conditionnelle avancée.</li>
+                    <li>Tableaux croisés dynamiques (introduction).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="session" onclick="toggleDetails(this)">
+            <h2>📌 Session 3 (7 mars 2025 - 1h30) <span class="toggle-icon">▼</span></h2>
+            <div class="details">
+                <p><strong>Objectif :</strong> Graphiques et analyse de données.</p>
+                <p><strong>Contenu :</strong></p>
+                <ul>
+                    <li>Création de graphiques avancés.</li>
+                    <li>Analyse de données avec des tableaux croisés dynamiques.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="session" onclick="toggleDetails(this)">
+            <h2>📌 Session 4 (8 mars 2025 - 1h30) <span class="toggle-icon">▼</span></h2>
+            <div class="details">
+                <p><strong>Objectif :</strong> Automatisation et macros de base.</p>
+                <p><strong>Contenu :</strong></p>
+                <ul>
+                    <li>Introduction aux macros.</li>
+                    <li>Enregistrement et exécution de macros simples.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="session" onclick="toggleDetails(this)">
+            <h2>📌 Session 5 (14 mars 2025 - 1h) <span class="toggle-icon">▼</span></h2>
+            <div class="details">
+                <p><strong>Objectif :</strong> Révision et pratique.</p>
+                <p><strong>Contenu :</strong></p>
+                <ul>
+                    <li>Révision des concepts appris.</li>
+                    <li>Exercices pratiques et Q&A.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDetails(sessionElement) {
+            let details = sessionElement.querySelector(".details");
+            let icon = sessionElement.querySelector(".toggle-icon");
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                sessionElement.classList.add("open");
+            } else {
+                details.style.display = "none";
+                sessionElement.classList.remove("open");
+            }
+        }
+    </script>
+</body>
+</html>
