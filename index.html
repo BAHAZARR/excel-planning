@@ -77,6 +77,76 @@
         .open .toggle-icon {
             transform: rotate(180deg);
         }
+
+        /* Style du formulaire d'évaluation */
+        .feedback-form {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-form h2 {
+            color: #1e3c72;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form label {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .feedback-form button {
+            padding: 12px 20px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .feedback-form button:hover {
+            background-color: #1e3c72;
+        }
+
+        /* Style des étoiles */
+        .rating {
+            direction: rtl;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: #ffcc00;
+        }
     </style>
 </head>
 <body>
@@ -143,6 +213,32 @@
             </div>
         </div>
     </div>
+    <!-- Formulaire d'évaluation -->
+    <div class="feedback-form">
+        <h2>💬 Laissez-nous vos commentaires et évaluation</h2>
+        <form action="https://formspree.io/f/mwplpkdk" method="POST">
+            <label for="name">Votre Nom :</label>
+            <input type="text" id="name" name="name" required placeholder="Entrez votre nom">
+            
+            <label for="email">Votre Email :</label>
+            <input type="email" id="email" name="email" required placeholder="Entrez votre email">
+            
+            <label for="rating">Évaluation :</label>
+            <div id="rating" class="rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+            </div>
+            
+            <label for="comment">Commentaires :</label>
+            <textarea id="comment" name="comment" rows="5" placeholder="Écrivez vos commentaires ici..."></textarea>
+            
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
     <script>
         function toggleDetails(sessionElement) {
             let details = sessionElement.querySelector(".details");
